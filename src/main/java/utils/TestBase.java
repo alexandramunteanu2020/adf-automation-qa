@@ -26,13 +26,8 @@ public class TestBase {
         properties = new ReadProperties();
         this.driver = new ChromeDriver(cap);
         this.driver.manage().deleteAllCookies();
-        goToLoginPage();
         maximizeBrowserWindow();
-    }
-
-    @BeforeMethod
-    public void beforeMethodImplementation() {
-
+        goToLoginPage();
     }
 
     @AfterMethod

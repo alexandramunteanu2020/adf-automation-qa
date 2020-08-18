@@ -39,6 +39,9 @@ public class FilePage extends PageBase {
     @FindBy(xpath = "//*[@aria-label='Delete']")
     private WebElement deleteButton;
 
+    @FindBy(xpath = "//div[@class='cdk-overlay-pane']")
+    private WebElement deletePopUpMessage;
+
     public FilePage(WebDriver driver) {
         super(driver);
     }
@@ -66,7 +69,7 @@ public class FilePage extends PageBase {
     public void clickOnRightMenuAndDeleteFolder(String folderName) {
         foldersTable.findElement(By.xpath("//span[text()='" + folderName + "']")).findElement(By.xpath("//*[@aria-label='Actions']")).click();
         deleteButton.click();
-        localWait(3000);
+        localWait(1000);
     }
 
     public boolean isFolderPresent(String folderName) {
@@ -75,5 +78,9 @@ public class FilePage extends PageBase {
 
     public boolean isFolderDeleted(String folderName) {
         return findElements(By.xpath("//div[@data-automation-id='" + folderName + "']")).isEmpty();
+    }
+
+    public String getDeletedFolderMessage(String folderName) {
+        return deletePopUpMessage.findElement(By.xpath("//span[text()='" + folderName + " deleted']")).getText();
     }
 }

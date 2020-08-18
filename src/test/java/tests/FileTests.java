@@ -22,7 +22,9 @@ public class FileTests extends TestBase {
     private static final boolean USE_LETTERS = true;
     private static final boolean USE_NUMBERS = false;
     private static final String GENERATED_NAME = RandomStringUtils.random(LENGTH, USE_LETTERS, USE_NUMBERS);
+
     private final String ERROR_MESSAGE = "There's already a folder with this name. Try a different name.";
+    private final String DELETE_FOLDER_MESSAGE = GENERATED_NAME + " deleted";
 
     @BeforeClass
     public void openLoginPage() {
@@ -40,6 +42,7 @@ public class FileTests extends TestBase {
         Assert.assertTrue(filePage.isDialogDisplayed());
         filePage.clickOnCancelButton();
         filePage.clickOnRightMenuAndDeleteFolder(GENERATED_NAME);
+        Assert.assertEquals(filePage.getDeletedFolderMessage(GENERATED_NAME), DELETE_FOLDER_MESSAGE);
         Assert.assertTrue(filePage.isFolderDeleted(GENERATED_NAME));
     }
 }
