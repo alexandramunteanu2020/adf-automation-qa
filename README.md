@@ -51,3 +51,20 @@ The framework has already been setup in the /starter folder, please add your tee
 ### Some info about ADF
 * https://github.com/Alfresco/alfresco-ng2-components
 * https://alfresco.github.io/adf-component-catalog/
+
+
+1. ***Description***
+In order to run the automation, go to FileTests.java and you will find the following test method: validateCreateAndDeleteFolderFunctionalities(). On the left side you can find a green button,
+click on it and select the first option: Run 'validateCreateAndDeleteFolderFunctionalities()'
+
+2. ***Explanation***
+I chose this implementation, because it's easier the follow and understand the automated test. As patterns, I have used Page Object + Page Factory to write all the neccesary locators and methods for all the required actions specified from the above flow.
+
+3. ***Prerequisites*** 
+You will need: 
+	- Maven as dependency tool
+	- Selenium (version 3.0.1)
+	- Java 8
+	- TestNG
+
+
